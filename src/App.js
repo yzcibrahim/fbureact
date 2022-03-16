@@ -66,8 +66,8 @@ class App extends Component {
           <input  type="text" value={toplam} />
         </div>
 
-<Toplama  yazi={"1. component"}/>
-<Toplama yazi={"merhaba ben component"} />
+
+<Toplama yazi={"merhaba ben toplama componenti"} />
       </div>
 
     );
