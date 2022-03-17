@@ -10,7 +10,9 @@ class App extends Component {
       name: 'ibrahim',
       surname: 'yazici',
       sayi1:0,
-      sayi2:0
+      sayi2:0,
+      nameVisible:'block',
+      visibleBtnVal:"Hide"
     }
   }
   componentDidMount() {
@@ -18,11 +20,24 @@ class App extends Component {
   }
  
   render() {
-    const{sayi1,sayi2}=this.state;
+    const{sayi1,sayi2,nameVisible,visibleBtnVal}=this.state;
     const toplam=parseInt(sayi1)+parseInt(sayi2);
     console.log("render ");
     return (
       <div className="App">
+        <div><input type='button' value={visibleBtnVal}
+        onClick={()=>{
+          console.log("namevisible="+nameVisible);
+          this.setState(()=>{
+            return{nameVisible:nameVisible=="block"?"none":"block",
+                  visibleBtnVal:visibleBtnVal=="Hide"?"Show":"Hide"
+          }
+          });
+
+          
+        }}
+        /></div>
+        <div style={{display: nameVisible}}>
         <div>
           ad: {this.state.name}
         </div>
@@ -46,7 +61,7 @@ class App extends Component {
             }
           })
         }} /></div>
-
+</div>
         <div>
           <input type="text" onChange={(event)=>{
               this.setState(()=>{
@@ -67,7 +82,10 @@ class App extends Component {
         </div>
 
 
-<Toplama yazi={"merhaba ben toplama componenti"} />
+<Toplama yazi={"merhaba ben islem componenti1"} islem={"t"} />
+<Toplama yazi={"merhaba ben islem componenti2"} islem={"c"} />
+<Toplama yazi={"merhaba ben islem componenti2"} islem={"f"} />
+<Toplama yazi={"merhaba ben islem componenti2"} islem={"b"} />
       </div>
 
     );
